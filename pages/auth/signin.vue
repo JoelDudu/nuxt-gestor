@@ -3,11 +3,11 @@
     <v-col cols="12" sm="8" md="4" align="center">
       <v-card width="500" class="elevation-4 text-left" shaped color="yellow">
         <v-card-title>Login</v-card-title>
-        <v-card-subtitle>Login to your dashboard</v-card-subtitle>
+        <v-card-subtitle>Login de Acesso</v-card-subtitle>
         <v-card-text>
           <v-form>
             <v-text-field
-              label="Login"
+              label="E-mail"
               name="login"
               prepend-icon="mdi-account"
               type="text"
@@ -15,7 +15,7 @@
             ></v-text-field>
 
             <v-text-field
-              label="Password"
+              label="Senha"
               name="password"
               prepend-icon="mdi-lock"
               type="password"
@@ -29,10 +29,10 @@
             @click="login"
             depressed
             large
-            >Login</v-btn
+            >Entrar</v-btn
           >
           <v-btn class="reset-button" @click="forgotPassword" depressed large
-            >Forgot Password</v-btn
+            >Esqueci minha senha</v-btn
           >
         </v-card-actions>
       </v-card>
@@ -54,7 +54,7 @@ export default {
   data() {
     return {
       snackbar: false,
-      snackbarText: 'No error message',
+      snackbarText: 'Sem erro de mensagem',
       auth: {
         email: '',
         password: ''
@@ -77,7 +77,7 @@ export default {
       let that = this
       this.$fire.auth.sendPasswordResetEmail(this.auth.email)
       .then(function (){
-        that.snackbarText = 'reset link sent to ' + that.auth.email
+        that.snackbarText = 'Processo de recuperação de senha enviado para o email:' + that.auth.email
         that.snackbar = true
       })
       .catch(function (error) {
